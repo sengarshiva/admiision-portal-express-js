@@ -1,0 +1,32 @@
+.weblogo {
+    width: 90px;
+}
+.navbar {
+    background: white !important;
+}
+
+.navbar-nav li {
+    padding: 0 10px;
+}
+
+.navbar-nav li a {
+    color: black !important;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.moblogo {
+    display: none;
+}
+
+.navbar-nav a:hover {
+    background-color: wheat;
+}
+
+.a{
+    line-height: 35px;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    padding-right: 5px;
+    text-align: justify;
+}

@@ -1,0 +1,39 @@
+<%- include("./header.ejs") %>
+<%- include("./sidebar.ejs") %>
+
+<h1 class="text-center mt-5">Course View</h1>
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>phone</th>
+            <th>gender</th>
+            <th>education</th>
+            <th>address</th>
+            <th>dob</th>
+           
+        </tr>
+        
+        <tr>
+            <td><%= d.id %></td>
+            <td><%= d.name %></td>
+            <td><%= d.email %></td>
+            <td><%= d.course %></td>
+            <td><%= d.phone %></td>
+            <td><%= d.gender %></td>
+            <td><%= d.education %></td>
+            <td><%= d.address %></td>
+            <td><%= d.dob %></td>
+        </tr>
+    </table>
+
+</div> <!--container end-->
+
+<center>
+    <a href="/admin/courseDisplay" class="btn btn-info">back</a>
+</center>
+
+<%- include ("./footer.ejs") %>

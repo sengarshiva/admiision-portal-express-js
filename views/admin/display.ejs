@@ -1,0 +1,110 @@
+<%- include("./header.ejs") %>
+  <%- include("./sidebar.ejs") %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Display</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Display</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">DataTable with default features</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Course</th> 
+                  <th>Email</th>
+                  <th>Status</th>
+                  <th>comment</th>
+                  <th></th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% d.forEach((item)=>{ %>
+                  <tr>
+                    <td>
+                      <%= item.id%>
+                    </td>
+                    <td>
+                      <%= item.name%>
+                    </td><!--Course Model name-->
+                    <td>
+                      <%= item.course%>
+                    </td>
+                    <td>
+                      <%= item.email%>
+                    </td>
+                    <td>
+                      <%= item.status%>
+                    </td>
+                    <td>
+                      <form action="/update_status/<%= item._id %>" method="post">
+                        <textarea name="comment" class="form-control"></textarea>
+                        <input type="hidden" name="name" value="<%= item.name %>">
+                        <input type="hidden" name="email" value="<%= item.email %>">
+                    </td>
+                    <td>
+                      <button type="submit" name="status" class="btn btn-success" value="Approved">Approved</button>
+                      <button type="submit" name="status" class="btn btn-danger" value="Reject">Reject</button>
+                      </form>
+                    </td>
+                    <td>
+                      <a href="/adminView/<%= item.id%>" class="btn btn-info"><i class="fa-solid fa-eye"></i> View</a>
+                      <a href="/adminEdit/<%= item.id%>" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i>
+                        Edit</a>
+                      <a href="/adminDel/<%= item.id%>" class="btn btn-danger"><i class="fa-solid fa-trash"></i>
+                        Delete</a>
+                    </td>
+                  </tr>
+                  <% }) %>
+
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Course</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                  <th>Comment</th>
+                  <th></th>
+                  <th>Action</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+
+    <%- include('./footer.ejs') %>

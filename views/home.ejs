@@ -1,0 +1,414 @@
+<%- include("./header.ejs") %>
+    <!--slider start-->
+    <div class="carousel slide" data-bs-ride="carousel" id="pn">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#pn" data-bs-slide-to="0" class="active"> </button>
+            <button type="button" data-bs-target="#pn" data-bs-slide-to="1"> </button>
+            <button type="button" data-bs-target="#pn" data-bs-slide-to="3"> </button>
+        </div>
+        <!-- div carousel indicator ends -->
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+                <img src="image/campus-tour.jpg" alt="" class="w-100">
+
+            </div>
+            <div class="carousel-item " data-bs-interval="2000">
+                <img src="image/female-grads-2000x1000px.jpg" alt="" class="w-100">
+
+            </div>
+            <div class="carousel-item " data-bs-interval="2000">
+                <img src="image/Lap-Pic2.jpg" alt="" class="w-100">
+
+            </div>
+        </div>
+        <!-- carousel inner ends -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#pn" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#pn" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <!-- slider end-->
+    <!--container start-->
+    <div class="container mt-4">
+
+        <div class="row mt-5 mb-5">
+
+            <div class="col-md-3">
+                <div class="card shadow photo1" style="height: 250px;">
+                    <h3 style="cursor: pointer; text-align: center;">B.Tech</h3>
+                    <p style="cursor: pointer; text-align: center;">Artificial Intelligence & Machine Learning (AI / ML)
+                    </p>
+                    <p style="cursor: pointer; text-align: center;">Computer Science & Engg. (CSE)</p>
+                    <p style="cursor: pointer; text-align: center;">Mechanical Engg. (ME)</p>
+                    <p style="cursor: pointer; text-align: center;">Electronics & Communications Engg. (ECE)</p>
+                    <!-- <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#aa" style="font-weight:bold">REGISTER
+
+                </button> -->
+                </div>
+                <br>
+                <center>
+                    <% if(btech){ %>
+                        <a href="/courseDisplay" class="btn btn-primary">Course Display</a>
+                    <% }else { %>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aa"
+                        style="font-weight:bold;">REGISTER
+
+                    </button>
+                <%} %>
+                </center>
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow photo2" style="height: 250px;">
+                    <h3 style="cursor: pointer; text-align: center;">M.Tech</h3>
+                    <p style="cursor: pointer; text-align: center;">Computer Science & Engg. (CSE)</p>
+                    <p style="cursor: pointer;text-align: center;">Software Systems (SS)</p>
+                    <p style="cursor: pointer; text-align: center;">Thermal System & Design (TSD)</p>
+                    <p style="cursor: pointer; text-align: center;">VLSI</p>
+                    <p style="cursor: pointer; text-align: center;">Digital Communication (DC)</p>
+
+                </div>
+                <br>
+                <center>
+                    <% if(mtech){ %>
+                        <a href="/courseDisplay" class="btn btn-info">Course Display</a>
+                    <% }else { %>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#M.Tech"
+                        style="font-weight:bold;">REGISTER
+
+                    </button>
+                <%} %>
+                </center>
+
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow photo3" style="height: 250px;">
+                    <h3 style="cursor: pointer; text-align: center;">B.B.A</h3>
+                    <p style="cursor: pointer; text-align: center;">B.Com</p>
+                    <p style="cursor: pointer; text-align: center;">B.Com (Computer Application)</p>
+
+                </div>
+                <br>
+                <center>
+                    <% if(mtech){ %>
+                        <a href="/courseDisplay" class="btn btn-info">Course Display</a>
+                    <% }else { %>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#BBA"
+                        style="font-weight:bold;">REGISTER
+
+                    </button>
+                <%} %>
+                </center>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow photo4" style="height: 250px;">
+                    <h3 style="cursor: pointer; text-align: center;">M.B.A</h3>
+                    <p style="cursor: pointer; text-align: center;">Finance</p>
+                    <p style="cursor: pointer; text-align: center;">Marketing</p>
+                    <p style="cursor: pointer; text-align: center;">Human Resource</p>
+                </div>
+                <br>
+                <center>
+                    <% if(mtech){ %>
+                        <a href="/courseDisplay" class="btn btn-info">Course Display</a>
+                    <% }else { %>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#BBA"
+                        style="font-weight:bold;">REGISTER
+
+                    </button>
+                <%} %>
+                </center>
+
+            </div>
+
+
+            
+        </div><!--row end-->
+    </div>
+    <!--container end-->
+
+    <!--btech model-->
+    <div class="modal fade" id="aa">
+
+        <div class="modal-dialog modal-md card">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div style="background: white;">
+                        <br>
+                        <form action="/courseInsert" method="post">
+                            <div class="mb-3">
+                                <label>name:</label>
+                                <input type="text" name="name" class="form-control" value="<%= n %>">
+                            </div>
+                            <div class="mb-3">
+                                <label>email:</label>
+                                <input type="email" name="email" class="form-control" value="<%= e %>">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>Phone:</label>
+                                <input type="number" name="phone" class="form-control">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>D.O.B:</label>
+                                <input type="date" name="dob" class="form-control">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>address:</label>
+                                <textarea class="form-control" name="address"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label>gender:</label>
+                                <select name="gender" class="form-control">
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label>Education</label>
+                                <select class="form-control" name="education">
+                                    <option value="10th">10th</option>
+                                    <option value="12th">12th</option>
+                                </select>
+
+                            </div>
+                            <div class="mb-3">
+                                <label>course:</label>
+                                <select class="form-control" name="course">
+                                    <option value="B.Tech">B.Tech</option>
+                                    <option value="M.Tech">M.Tech</option>
+                                    <option value="B.B.A">B.B.A</option>
+                                    <option value="M.B.A">M.B.A</option>
+
+
+                                </select>
+
+                            </div>
+                            <button class="btn btn-info btn-lg" type="submit">SUBMIT</button>
+                        </form>
+
+                    </div>
+
+                </div><!--modal body-->
+
+            </div><!--modal content-->
+        </div>
+
+    </div> 
+    <!--buutton trigger modal-->
+
+    <!--M.Tech model-->
+    <div class="modal fade" id="M.Tech">
+
+        <div class="modal-dialog modal-md card">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div style="background: white;">
+                        <br>
+                        <form action="/courseInsert" method="post">
+                            <div class="mb-3">
+                                <label>name:</label>
+                                <input type="text" name="name" class="form-control" value="<%= n %>">
+                            </div>
+                            <div class="mb-3">
+                                <label>email:</label>
+                                <input type="email" name="email" class="form-control" value="<%= e %>">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>Phone:</label>
+                                <input type="number" name="phone" class="form-control">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>D.O.B:</label>
+                                <input type="date" name="dob" class="form-control">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>address:</label>
+                                <textarea class="form-control" name="address"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label>gender:</label>
+                                <select name="gender" class="form-control">
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label>Education</label>
+                                <select class="form-control" name="education">
+                                    <option value="10th">10th</option>
+                                    <option value="12th">12th</option>
+                                </select>
+
+                            </div>
+                            <div class="mb-3">
+                                <label>course:</label>
+                                <input type="text" value="M.Tech" readonly name="course">
+
+                            </div>
+                            <button class="btn btn-info btn-lg" type="submit">SUBMIT</button>
+                        </form>
+
+                    </div>
+
+                </div><!--modal body-->
+
+            </div><!--modal content-->
+        </div>
+
+    </div> 
+    <!--M.Tech end-->
+
+    <!--BBA model-->
+    <div class="modal fade" id="BBA">
+
+        <div class="modal-dialog modal-md card">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div style="background: white;">
+                        <br>
+                        <form action="/courseInsert" method="post">
+                            <div class="mb-3">
+                                <label>name:</label>
+                                <input type="text" name="name" class="form-control" value="<%= n %>">
+                            </div>
+                            <div class="mb-3">
+                                <label>email:</label>
+                                <input type="email" name="email" class="form-control" value="<%= e %>">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>Phone:</label>
+                                <input type="number" name="phone" class="form-control">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>D.O.B:</label>
+                                <input type="date" name="dob" class="form-control">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>address:</label>
+                                <textarea class="form-control" name="address"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label>gender:</label>
+                                <select name="gender" class="form-control">
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label>Education</label>
+                                <select class="form-control" name="education">
+                                    <option value="10th">10th</option>
+                                    <option value="12th">12th</option>
+                                </select>
+
+                            </div>
+                            <div class="mb-3">
+                                <label>course:</label>
+                                <input type="text" value="BBA" readonly name="course">
+
+                            </div>
+                            <button class="btn btn-info btn-lg" type="submit">SUBMIT</button>
+                        </form>
+
+                    </div>
+
+                </div><!--modal body-->
+
+            </div><!--modal content-->
+        </div>
+
+    </div> 
+    <!--BBA end-->
+
+     <!--MBA model-->
+     <div class="modal fade" id="BBA">
+
+        <div class="modal-dialog modal-md card">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div style="background: white;">
+                        <br>
+                        <form action="/courseInsert" method="post">
+                            <div class="mb-3">
+                                <label>name:</label>
+                                <input type="text" name="name" class="form-control" value="<%= n %>">
+                            </div>
+                            <div class="mb-3">
+                                <label>email:</label>
+                                <input type="email" name="email" class="form-control" value="<%= e %>">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>Phone:</label>
+                                <input type="number" name="phone" class="form-control">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>D.O.B:</label>
+                                <input type="date" name="dob" class="form-control">
+
+                            </div>
+                            <div class="mb-3">
+                                <label>address:</label>
+                                <textarea class="form-control" name="address"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label>gender:</label>
+                                <select name="gender" class="form-control">
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+
+                                </select>
+                                <!--saare model mein gender ko radio button krna hai ASAP  -->
+                            </div>
+                            <div class="mb-3">
+                                <label>Education</label>
+                                <select class="form-control" name="education">
+                                    <option value="10th">10th</option>
+                                    <option value="12th">12th</option>
+                                </select>
+
+                            </div>
+                            <div class="mb-3">
+                                <label>course:</label>
+                                <input type="text" value="MBA" readonly name="course">
+
+                            </div>
+                            <button class="btn btn-info btn-lg" type="submit">SUBMIT</button>
+                        </form>
+
+                    </div>
+
+                </div><!--modal body-->
+
+            </div><!--modal content-->
+        </div>
+
+    </div> 
+    <!--MBA end-->
+
+
+
+    <%- include("./footer.ejs") %>
+
+
+<!-- ejs ka syntex <%   %> hai.
+- include krne k liye use hota hai -->

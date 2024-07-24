@@ -1,0 +1,62 @@
+<%- include("../header.ejs") %>
+<br><br><br>
+<h1 class="text-center mt-5">Course Edit</h1>
+<div class="container">
+    <form action="/courseUpdate/<%= d.id %>" method="post">
+        <div class="mb-3">
+            <label>name:</label>
+            <input type="text" name="name" class="form-control"value="<%= d.name %>">
+        </div>
+        <div class="mb-3">
+            <label>email:</label>
+            <input type="email" name="email" class="form-control" value="<%= d.email %>">
+
+        </div>
+        <div class="mb-3">
+            <label>Phone:</label>
+            <input type="number" name="phone"value="<%= d.phone %>" class="form-control">
+
+        </div>
+        <div class="mb-3">
+            <label>D.O.B:</label>
+            <input type="date" name="dob" value="<%= d.dob %>" class="form-control">
+
+        </div>
+        <div class="mb-3">
+            <label>address:</label>
+            <textarea class="form-control" name="address"><%= d.address %></textarea>
+        </div>
+        <div class="mb-3">
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="male" <%= d.gender=='male'? 'checked':'' %>>Male
+            <input type="radio" name="gender" value="female"<%= d.gender=='female'? 'checked':'' %>>FeMale
+           
+        </div>
+        <div class="mb-3">
+            <label>Education:</label>
+            <select name="education" class="form-control" value="<%=d.education %>">
+                <option value="">Select</option>
+                <option <%= d.education=='10th' ? 'selected':'' %>>10th</option>
+                <option <%= d.education=='12th' ? 'selected':'' %>>12th</option>
+
+            </select>
+           
+        </div>
+        <div class="mb-3">
+            <label>course:</label>
+           <input type="text"  name="course" readonly class="form-control" value="<%= d.course %>">
+
+        </div>
+        <button class="btn btn-info btn-lg" type="submit">Update</button>
+    </form>
+    
+
+</div><!--container end-->
+
+<center>
+    <a href="/courseDisplay" class="btn btn-info">Back</a>
+</center>
+
+
+
+<%- include("../footer.ejs") %>
